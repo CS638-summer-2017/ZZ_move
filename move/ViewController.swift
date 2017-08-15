@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var animateThis: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,5 +24,11 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func TapDetected(_ sender: UITapGestureRecognizer) {
+        let tapLocation = sender.location(in: view)
+        UIView.animate(withDuration: 1.0) {
+            self.animateThis.center = tapLocation
+        }
+    }
 }
 
